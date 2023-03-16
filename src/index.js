@@ -20,7 +20,9 @@ searchBox.addEventListener("input", debounce(() => {
 
     fetchCountries(inputValue)
         .then(data => {
-        if (data.length > 10) {
+            if (data.length > 10) {
+            countryList.innerHTML = ""
+        countryInfo.innerHTML = ""
             Notiflix.Notify.info("Too many matches found. Please enter a more specific name.");
             return;
         }
